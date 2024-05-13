@@ -1,17 +1,36 @@
-﻿namespace GamesApp
+﻿using Microsoft.EntityFrameworkCore;
+using SQLite;
+
+namespace GamesApp
 {
     public partial class MainPage : ContentPage
     {
+
+
+        private readonly GameDbContext _dbContext;
 
         public IList<Game> Games { get; }
 
         public MainPage()
         {
             InitializeComponent();
-
-            Games = new List<Game>
+            _dbContext = new GameDbContext();
+            _dbContext.Database.EnsureCreated();
+            if (!_dbContext.Games.Any())
             {
-            new Game
+                SeedInitialData();
+            }
+            Games = _dbContext.Games.ToList();
+            BindingContext = this;
+        }
+
+
+        private void SeedInitialData()
+        {
+
+            _dbContext.Games.AddRange(new List<Game>
+            {
+                new Game
                 {
                     Name = "The Witcher 3: Wild Hunt",
                     Description = "An action role-playing game developed and published by CD Projekt.",
@@ -41,12 +60,11 @@
                     Category = "Action Adventure",
                     Rating = 9.7
                 }
-            };
-            BindingContext = this;
+            });
+
+            _dbContext.SaveChanges();
 
         }
 
-       
     }
-
 }
