@@ -2,21 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GamesApp.Page1"
-             Title="Page1">
+             Title="Games">
 
-    <StackLayout>
-        <ListView ItemsSource="{Binding Games}">
+    <StackLayout BackgroundColor="#121212">
+        <ListView ItemsSource="{Binding Games}" BackgroundColor="#121212">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Name}" FontSize="20" />
-                            <Label Text="{Binding Description}" FontSize="16" />
-                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="14" />
-                            <Label Text="{Binding Developer}" FontSize="14" />
-                            <Label Text="{Binding ReleaseDate, StringFormat='Release Date: {0}'}" FontSize="14" />
-                            <Label Text="{Binding Category}" FontSize="14" />
-                            <Label Text="{Binding Rating, StringFormat='Rating: {0:F1}'}" FontSize="14" />
+                        <StackLayout Padding="10" BackgroundColor="#1f1f1f" Margin="5">
+                            <Label Text="{Binding Name}" FontSize="20" TextColor="White" />
+                            <Label Text="{Binding Description}" FontSize="16" TextColor="#b0b0b0" />
+                            <Label Text="{Binding Price, StringFormat='Price: {0} €'}" FontSize="14" TextColor="#b0b0b0" />
+                            <Label Text="{Binding Developer}" FontSize="14" TextColor="#b0b0b0" />
+                            <Label Text="{Binding ReleaseDate, StringFormat='Release Date: {0}'}" FontSize="14" TextColor="#b0b0b0" />
+                            <Label Text="{Binding Category}" FontSize="14" TextColor="#b0b0b0" />
+                            <Label Text="{Binding Rating, StringFormat='Rating: {0:F1}'}" FontSize="14" TextColor="#b0b0b0" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

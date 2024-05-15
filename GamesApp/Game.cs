@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace GamesApp
 {
     public class Game
-    {
-        
+    { 
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -17,6 +16,5 @@ namespace GamesApp
         public int ReleaseDate { get; set; }
         public string Category { get; set; }
         public double Rating { get; set; }
-
     }
 }

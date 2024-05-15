@@ -18,7 +18,6 @@ namespace GamesApp
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
             string dbPath = @"C:\Eduard\Master\PDM\GamesApp\games.db";
             optionsBuilder.UseSqlite($"Filename={dbPath}");
         }
