@@ -7,43 +7,36 @@ namespace GamesApp;
 public partial class Page2 : ContentPage
 {
 
-    ChartEntry[] entries = new[]
-    {
-
-                 new ChartEntry(600)
-                {
-                    Label = "The Witcher 3: Wild Hunt",
-                    ValueLabel = "112",
-                    Color = SKColor.Parse("#2d3e54") 
-
-                },
-                new ChartEntry(128)
-                {
-                    Label = "Red Dead Redemption 2",
-                    ValueLabel = "600",
-                    Color = SKColor.Parse("#2a3e54")
-
-                },
-                new ChartEntry(38)
-                {
-                    Label = "The Legend of Zelda: Breath of the Wild",
-                    ValueLabel = "38",
-                    Color = SKColor.Parse("#2b3e54")
-
-                }
-
-    };
-
-
-
+        List<ChartEntry> entries = new List<ChartEntry>();
 
     public Page2()
     {
         InitializeComponent();
 
+        var databasePath = @"C:\Eduard\Master\PDM\GamesApp\games.db";
+        var connection = new SQLiteConnection(databasePath);
+        var games = connection.Query<Game>("SELECT * FROM Games").ToList();
+
+
+        foreach (var game in games)
+        {
+            entries.Add(new ChartEntry((float)game.Rating)
+            {
+                Label = game.Name,
+                ValueLabel = game.Rating.ToString(),
+                Color = SKColor.Parse("#3498db"), 
+                TextColor = SKColor.Parse("#ffffff"), 
+                ValueLabelColor = SKColor.Parse("#ffffff"), 
+                
+            });
+        }
+
         chartView.Chart = new BarChart
         {
-            Entries = entries
+            Entries = entries,
+            BackgroundColor = SKColor.Parse("#2c3e50"),
+            LabelTextSize = 30,
+            Margin = 20
         };
 
     }
