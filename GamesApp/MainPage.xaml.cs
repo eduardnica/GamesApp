@@ -31,5 +31,9 @@ namespace GamesApp
         {
             await Navigation.PushAsync(new Page5());
         }
+        public async void Manage_Data(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Page6AddData());
+        }
     }
 }
