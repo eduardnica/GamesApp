@@ -7,33 +7,24 @@
     <ScrollView>
         <StackLayout Padding="20">
 
-            <!-- Input Fields -->
             <Label Text="Name" FontSize="20"/>
             <Entry x:Name="NameEntry"/>
-
             <Label Text="Description" FontSize="20" Margin="0,10,0,0"/>
             <Entry x:Name="DescriptionEntry"/>
-
             <Label Text="Price" FontSize="20" Margin="0,10,0,0"/>
             <Entry x:Name="PriceEntry" Keyboard="Numeric"/>
-
             <Label Text="Developer" FontSize="20" Margin="0,10,0,0"/>
             <Entry x:Name="DeveloperEntry"/>
-
             <Label Text="ReleaseDate Year" FontSize="20" Margin="0,10,0,0"/>
             <Entry x:Name="ReleaseDateEntry" Keyboard="Numeric"/>
-
             <Label Text="Category" FontSize="20" Margin="0,10,0,0"/>
             <Entry x:Name="CategoryEntry"/>
-
             <Label Text="Rating" FontSize="20" Margin="0,10,0,0"/>
             <Entry x:Name="RatingEntry" Keyboard="Numeric"/>
 
-            <!-- Buttons -->
             <Button Text="Add Game" Clicked="OnAddGameClicked" BackgroundColor="#4CAF50" TextColor="White" Margin="0,10,0,0"/>
             <Button Text="Delete Game" Clicked="OnDeleteGameClicked" BackgroundColor="#F44336" TextColor="White" Margin="0,10,0,0"/>
 
-            <!-- CollectionView to show the games -->
             <CollectionView x:Name="GamesCollectionView" Margin="0,20,0,0" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

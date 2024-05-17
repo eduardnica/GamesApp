@@ -12,14 +12,8 @@ public partial class Page6AddData : ContentPage
     public Page6AddData()
     {
         InitializeComponent();
-
-        // Initialize DbContext
         dbContext = new GameDbContext();
-
-        // Create the table if it doesn't exist
         dbContext.Database.EnsureCreated();
-
-        // Load games from the database
         LoadGames();
     }
 
@@ -64,9 +58,7 @@ public partial class Page6AddData : ContentPage
 
         dbContext.Games.Add(game);
         dbContext.SaveChanges();
-
         games.Add(game);
-
         ClearEntries();
     }
 
